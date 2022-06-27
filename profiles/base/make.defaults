@@ -8,4 +8,4 @@ USE="${USE} include_vmlinuz chrome_media"
 # chrome doesn't support nacl with aarch64 arch 
 #USE="${USE} -nacl"
 
-#USE="${USE} libcamera rkisp1"
+USE="${USE} libcamera rkisp1"
