@@ -17,6 +17,7 @@ RDEPEND="
   chromeos-base/chromeos-bsp-baseboard-inaugural
   chromeos-base/device-appid
   net-wireless/brcm_bt_patchrom
+  chromeos-base/inaugural-firmware
   "
 
 DEPEND="${RDEPEND}"
@@ -28,8 +29,6 @@ src_install() {
   doins "${FILESDIR}"/powerd_prefs/*
   udev_dorules "${FILESDIR}/93-powerd-overrides.rules"
   udev_dorules "${FILESDIR}/wifi_init/99-start-wifi.rules"
-  insinto /lib/firmware
-  doins -r ${FILESDIR}/firmware/*
   insinto /etc/init
   doins ${FILESDIR}/wifi_init/*.override
   exeinto /lib/udev
@@ -38,8 +37,6 @@ src_install() {
   doins -r ${FILESDIR}/ucm-config/*
   insinto /etc/cras
   doins ${FILESDIR}/board.ini
-#  insinto /usr/share/alsa/cards
-#  doins ${FILESDIR}/alsa-card/HDMI_DP-rockchi.conf
 }
 
 pkg_preinst() {
