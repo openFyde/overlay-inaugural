@@ -8,9 +8,12 @@ HOMEPAGE="http://fydeos.com"
 
 LICENSE="BSD-Google"
 SLOT="0"
-KEYWORDS="~* arm64 arm"
+KEYWORDS="*"
 IUSE=""
 
-RDEPEND="chromeos-base/chromeos-bsp-inaugural"
+RDEPEND="
+  virtual/fydemina
+  chromeos-base/chromeos-bsp-inaugural
+"
 
 DEPEND="${RDEPEND}"
