@@ -12,7 +12,6 @@ KEYWORDS="*"
 IUSE=""
 
 RDEPEND="
-  virtual/fydemina
   chromeos-base/chromeos-bsp-inaugural
 "
 
