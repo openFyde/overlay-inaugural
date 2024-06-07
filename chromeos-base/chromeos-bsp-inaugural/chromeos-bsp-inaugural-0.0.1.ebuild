@@ -11,7 +11,7 @@ HOMEPAGE="http://fydeos.com"
 LICENSE="BSD-Google"
 SLOT="0"
 KEYWORDS="*"
-IUSE=""
+IUSE="no-internal-mic"
 
 RDEPEND="
   chromeos-base/chromeos-bsp-baseboard-inaugural
@@ -33,8 +33,13 @@ src_install() {
   doins ${FILESDIR}/wifi_init/*.override
   exeinto /lib/udev
   doexe ${FILESDIR}/wifi_init/start_wifi.sh
-  insinto /usr/share/alsa/ucm
-  doins -r ${FILESDIR}/ucm-config/*
+  insinto /usr/share/alsa/ucm/rockchip-es8388
+  doins ${FILESDIR}/ucm-config/rockchip-es8388.conf
+  if use no-internal-mic; then
+    newins ${FILESDIR}/ucm-config/HiFi-nomic.conf HiFi.conf
+  else
+    newins ${FILESDIR}/ucm-config/HiFi-mic.conf HiFi.conf
+  fi
   insinto /etc/cras
   doins ${FILESDIR}/board.ini
 }
