@@ -29,8 +29,6 @@ src_install() {
   doins "${FILESDIR}"/powerd_prefs/*
   udev_dorules "${FILESDIR}/93-powerd-overrides.rules"
   udev_dorules "${FILESDIR}/wifi_init/99-start-wifi.rules"
-  insinto /etc/init
-  doins ${FILESDIR}/wifi_init/*.override
   exeinto /lib/udev
   doexe ${FILESDIR}/wifi_init/start_wifi.sh
   insinto /usr/share/alsa/ucm/rockchip-es8388
